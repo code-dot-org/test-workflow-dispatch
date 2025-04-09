@@ -10,6 +10,7 @@ steps:
     settings:
       urls:
         - https://api.github.com/repos/code-dot-org/test-workflow-dispatch/actions/workflows/on-droneci-complete.yml/dispatches
+      username: deploy-code-org
       password:
         from_secret: on-droneci-complete-github-token
       template: |
@@ -29,6 +30,6 @@ trigger:
     - pull_request
 ---
 kind: signature
-hmac: 00bf975fb7ec8f2fd04d17334f1437085a3d81c0fec42bb22b2a307f77359b13
+hmac: 7315f7e73ed32564a359ef6256f6c0dcfe7b5c3ca5d3256c2e999888b545ae14
 
 ...
