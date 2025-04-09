@@ -21,6 +21,7 @@ steps:
             "drone_build_status": "{{ build.status }}"
           }
         }
+      debug: true
 # depends_on:
 #   - unit
 #   - ui
