@@ -16,9 +16,11 @@ steps:
       urls:
         - https://api.github.com/repos/code-dot-org/test-workflow-dispatch/actions/workflows/on-droneci-complete.yml/dispatches
       username: x-access-token
-      secrets:
-        - source: on-droneci-complete-github-token
-          target: webhook_password
+      password:
+        from_secret: on-droneci-complete-github-token
+      # secrets:
+      #   - source: on-droneci-complete-github-token
+      #     target: webhook_password
       content_type: application/json
       template: |
         {
@@ -37,6 +39,6 @@ trigger:
     - pull_request
 ---
 kind: signature
-hmac: 52eb4a39f30b611ecc75ad2636322ff338d904ede0f4ae6f09b6d033cbcf6aee
+hmac: a2f6c1da8f148ba1662efa0924bae18ab2ec9504f83808ae6fb6544584e286ee
 
 ...
