@@ -5,20 +5,13 @@ name: on-droneci-complete
 clone:
   disable: true
 steps:
-  - name: print-build-status
-    image: alpine
-    commands:
-      - echo "DRONE_BUILD_STATUS=$DRONE_BUILD_STATUS"
-
   - name: trigger-github-actions
     image: plugins/webhook
     settings:
       urls:
         - https://api.github.com/repos/code-dot-org/test-workflow-dispatch/actions/workflows/on-droneci-complete.yml/dispatches
-      username: x-access-token
       password:
         from_secret: on-droneci-complete-github-token
-      content_type: application/json
       template: |
         {
           "ref": "{{ build.branch }}",
@@ -36,6 +29,6 @@ trigger:
     - pull_request
 ---
 kind: signature
-hmac: a2f6c1da8f148ba1662efa0924bae18ab2ec9504f83808ae6fb6544584e286ee
+hmac: 00bf975fb7ec8f2fd04d17334f1437085a3d81c0fec42bb22b2a307f77359b13
 
 ...
