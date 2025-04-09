@@ -16,6 +16,7 @@ steps:
       template: |
         {
           "ref": "{{ build.source }}",
+          "source-branch": "${DRONE_SOURCE_BRANCH}",
           "inputs": {
             "github_sha": "{{ build.commit }}",
             "drone_build_status": "{{ build.status }}"
